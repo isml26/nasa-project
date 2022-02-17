@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "nodemon src/index.js",
-    "start": "set PORT=5000 && npx nodemon src/index.js"
+    "start": "set PORT=5000 && node src/index.js"
   },
   "keywords": [],
   "author": "",
@@ -17,6 +17,7 @@
   "dependencies": {
     "cors": "^2.8.5",
     "csv-parse": "^5.0.4",
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "morgan": "^1.10.0"
   }
 }
