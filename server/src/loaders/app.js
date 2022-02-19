@@ -3,9 +3,11 @@ const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
 
+const dotenv = require("dotenv");
 const planetsRouter = require("../routes/planets/planets.router")
 const launchesRouter = require("../routes/launches/launches.router")
 
+dotenv.config();
 const app = express();
 // parse json from the body of incomnig request
 app.use(cors({

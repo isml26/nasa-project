@@ -18,12 +18,10 @@ const launchesSchema = new mongoose.Schema({
         required: true
     },
     target: {
-        type: String,
-        required: true
+        type: String
     },
     customers: {
-        type: [String],
-        default: ['NASA', 'SpaceX']
+        type: [String]
     },
     upcoming: {
         type: Boolean,

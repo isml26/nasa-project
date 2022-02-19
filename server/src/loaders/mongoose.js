@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const uri = "mongodb+srv://admin:admin@cluster0.4patz.mongodb.net/nasa_project?retryWrites=true&w=majority";
+const uri = process.env.uri;
 
 async function connectDB() {
     try {
