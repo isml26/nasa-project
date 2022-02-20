@@ -1,28 +1,10 @@
 const {MongoMemoryServer} = require("mongodb-memory-server")
 const mongoose = require("mongoose")
-const Planet = require("../models/planets.mongo")
 
 jest.useFakeTimers('legacy')
 
 let mongo;
 
-const planetSchema = new mongoose.Schema({
-    keplerName: {
-        type: String,
-        required: true
-    }
-}, {
-    timestamps: false,
-    versionKey: false,
-    toJSON: {
-        transform(doc, ret) {
-            ret.id = ret._id;
-            delete ret._id
-        }
-    }
-});
-
-let db;
 beforeAll(async()=>{
     mongo = await MongoMemoryServer.create();
     const mongoUri = mongo.getUri();
