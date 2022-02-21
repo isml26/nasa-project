@@ -45,6 +45,9 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 - [SpaceX API](https://github.com/r-spacex/SpaceX-API)
 - To learn React, check out the [React documentation](https://reactjs.org/).
 
+
+![Nasa-Project-Architecture](https://user-images.githubusercontent.com/62605922/154981512-67819f28-77a8-4976-8cfb-d6a763281ed8.png)
+
 ||||
 |:--:|:--:|:--:|
 |**!![clustr](https://user-images.githubusercontent.com/62605922/154940106-7ae7c457-cc5a-471d-a3dc-48f50b06624a.png)**|**!![pm222](https://user-images.githubusercontent.com/62605922/154940117-6f5a04a8-6016-4120-8e10-bef397879447.png)|
