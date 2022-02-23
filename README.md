@@ -40,7 +40,7 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 ## Learn More
 
 - To learn Docker, check out the [Docker Documentation](https://docs.docker.com/)
-- Check out [PM2 Documentation](https://pm2.keymetrics.io/docs)
+- Check out [PM2 Documentation](https://pm2.keymetrics.io/docs/usage/quick-start/)
 - [Futuristic Sci-Fi UI Web Framework](https://github.com/arwes/arwes)
 - [SpaceX API](https://github.com/r-spacex/SpaceX-API)
 - To learn React, check out the [React documentation](https://reactjs.org/).
