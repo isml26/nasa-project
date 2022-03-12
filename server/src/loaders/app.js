@@ -11,8 +11,7 @@ dotenv.config();
 const app = express();
 // parse json from the body of incomnig request
 app.use(cors({
-    origin: 'http://localhost:3000',
-    
+    origin: 'http://localhost:3000', 
 }));
 
 app.use((req, res, next) => {
