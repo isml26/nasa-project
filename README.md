@@ -44,6 +44,7 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 - [Futuristic Sci-Fi UI Web Framework](https://github.com/arwes/arwes)
 - [SpaceX API](https://github.com/r-spacex/SpaceX-API)
 - To learn React, check out the [React documentation](https://reactjs.org/).
+- AWS EC2 [Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 
 
 ![Nasa-Project-Architecture](https://user-images.githubusercontent.com/62605922/154981512-67819f28-77a8-4976-8cfb-d6a763281ed8.png)
