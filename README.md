@@ -47,7 +47,7 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 - AWS EC2 [Documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html)
 
 
-![Nasa-Project-Architecture](https://user-images.githubusercontent.com/62605922/154981512-67819f28-77a8-4976-8cfb-d6a763281ed8.png)
+![Nasa-Project-Architecture2](https://user-images.githubusercontent.com/62605922/158765183-72aa8040-0e92-4661-965b-70b77f36e0b5.png)
 
 ||||
 |:--:|:--:|:--:|
