@@ -25,16 +25,24 @@ jobs:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: Login to DockerHub
-        uses: docker/login-action@v1 
+      -
+        name: Checkout
+        uses: actions/checkout@v3
+      -
+        name: Login to Docker Hub
+        uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-      - name: Build and push Docker image
-        uses: docker/build-push-action@v2
+      -
+        name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      -
+        name: Build and push
+        uses: docker/build-push-action@v4
         with:
           context: .
+          file: ./Dockerfile
           push: true
           tags: ismail26/nasa-project:latest
 
@@ -46,10 +54,10 @@ jobs:
       uses: appleboy/ssh-action@master
       with:
         host: 52.71.0.125
-        username: ubuntu
+        username: ec2-user
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          docker pull ismail26/nasa-app:latest
-          docker stop my-nasa-app || true
-          docker rm my-nasa-app || true
-          docker run -d --name my-nasa-app -p 8000:8000 ismail26/nasa-app:latest
+          docker pull ismail26/nasa-project:latest
+          docker stop my-nasa-project || true
+          docker rm my-nasa-project || true
+          docker run -d --name my-nasa-project -p 8000:8000 ismail26/nasa-project:latest
