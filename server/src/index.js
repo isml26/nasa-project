@@ -9,7 +9,6 @@ async function startServer(){
     await connectDB();
     await loadPlanetsData();
     await loadLaunchesData();
-      
     app.listen(PORT, ()=>{
         console.log(`App started on ${PORT}`);
     });
