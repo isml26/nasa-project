@@ -10,9 +10,6 @@ RUN npm run install-client --only=production
 COPY server/package*.json server/
 RUN npm run install-server --only=production
 
-# Clear npm cache
-RUN npm cache clean --force
-
 COPY client/ client/
 RUN npm run build --prefix client
 
