@@ -50,6 +50,6 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           docker pull ismail26/nasa-project:latest
-          docker stop $(docker ps -q --filter ancestor=ismail26/nasa-project) || true
-          docker rm $(docker ps -a -q --filter ancestor=ismail26/nasa-project) || true
+          docker stop my-nasa-project || true
+          docker rm my-nasa-project || true
           docker run -d --name my-nasa-project -p 8000:8000 ismail26/nasa-project:latest
