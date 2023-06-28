@@ -49,7 +49,7 @@ jobs:
         username: ec2-user
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
-          docker pull ismail26/nasa-app:latest
-          docker stop my-nasa-app || true
-          docker rm my-nasa-app || true
-          docker run -d --name my-nasa-app -p 8000:8000 ismail26/nasa-app:latest
+          docker pull ismail26/nasa-project:latest
+          docker stop $(docker ps -q --filter ancestor=ismail26/nasa-project) || true
+          docker rm $(docker ps -a -q --filter ancestor=ismail26/nasa-project) || true
+          docker run -d --name my-nasa-project -p 8000:8000 ismail26/nasa-project:latest
