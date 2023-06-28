@@ -1,4 +1,4 @@
-name: NASA Project CI
+name: NASA Project CI/CD
 on:
   push:
     branches: [ main ]
@@ -20,3 +20,36 @@ jobs:
           node-version: ${{ matrix.node-version }}
       - run: npm install
       - run: npm run --prefix client
+
+  dockerize:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Login to DockerHub
+        uses: docker/login-action@v1 
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: ismail26/nasa-project:latest
+
+  deploy:
+    needs: dockerize
+    runs-on: ubuntu-latest
+    steps:
+    - name: Deploy to AWS EC2
+      uses: appleboy/ssh-action@master
+      with:
+        host: 52.71.0.125
+        username: ubuntu
+        key: ${{ secrets.SSH_PRIVATE_KEY }}
+        script: |
+          docker pull ismail26/nasa-app:latest
+          docker stop my-nasa-app || true
+          docker rm my-nasa-app || true
+          docker run -d --name my-nasa-app -p 8000:8000 ismail26/nasa-app:latest
