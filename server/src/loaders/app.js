@@ -3,9 +3,11 @@ const path = require("path");
 const cors = require("cors");
 const morgan = require("morgan");
 
+
 const dotenv = require("dotenv");
 const planetsRouter = require("../routes/planets/planets.router")
 const launchesRouter = require("../routes/launches/launches.router")
+const {logStream} = require("../services/logstash")
 
 dotenv.config();
 const app = express();
@@ -22,7 +24,47 @@ app.use((req, res, next) => {
     );
     next();
   });
-app.use(morgan('combined'));
+
+
+// create a write stream (in append mode)
+
+ 
+// setup the logger
+// Create an array to store the logs
+let logsArray = [];
+
+
+// Create a stream object with a 'write' function
+// let logStream = {
+//   write: function(message, encoding){
+//     logsArray.push(message);
+//   }
+// };
+
+// Use the stream in morgan middleware
+app.use(morgan(function(tokens,req,res){
+
+  // const logObject = {
+  //   method: tokens.method(req, res),
+  //   url: tokens.url(req, res),
+  //   status: tokens.status(req, res),
+  //   contentLength: tokens.res(req, res, 'content-length'),
+  //   responseTime: `${tokens['response-time'](req, res)}ms`,
+  // };
+
+  const logObject2 = 
+    tokens.method(req, res)+";"+
+    tokens.url(req, res)+";"+
+    tokens.status(req, res)+";"+
+    // tokens.res(req, res, 'content-length')+";"+
+    `${tokens['response-time'](req, res)}ms`
+  // Convert the JSON object to a string and log it to the console
+  // console.log(JSON.stringify(logObject));
+    console.log(logObject2);
+
+    logStream.sendItToLogstash(logObject2)
+}));
+
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'..','..','public')));
@@ -42,4 +84,6 @@ app.use("/launches",launchesRouter);
 app.get('/*',(req,res)=>{
     res.sendFile(path.join(__dirname,'..','..','public','index.html'));
 });
+
+
 module.exports = app;

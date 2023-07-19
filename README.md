@@ -9,6 +9,7 @@
 * Automated testing for executing tests with jest and making requests with supertest
 * Clustering Node.js app
 * Logging requests with morgan
+* Centralized Logging with ELK
 
 
 ### `npm install`
@@ -49,6 +50,12 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 
 ![Nasa-Project-Architecture2](https://user-images.githubusercontent.com/62605922/158765183-72aa8040-0e92-4661-965b-70b77f36e0b5.png)
 
+
+----------------------------------------------------------------------------------------
+
+![elk diagram](https://github.com/isml26/spacex-api-project-nodejs-ec2-jest-pm2/assets/62605922/f5f4a309-7d95-492d-9626-ca49d7a42b41)
+
+
 ||||
 |:--:|:--:|:--:|
 |**!![clustr](https://user-images.githubusercontent.com/62605922/154940106-7ae7c457-cc5a-471d-a3dc-48f50b06624a.png)**|**!![pm222](https://user-images.githubusercontent.com/62605922/154940117-6f5a04a8-6016-4120-8e10-bef397879447.png)|
@@ -57,3 +64,4 @@ Open [http://localhost:8000](http://localhost:8000) to view it in the browser.
 ----------------------------------------------------------------------------------------
 
 ![ec2re](https://user-images.githubusercontent.com/62605922/154940860-be9ede4f-031d-4393-85d9-a14091b2d34d.gif)
+
